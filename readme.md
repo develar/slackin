@@ -5,16 +5,15 @@
 - A landing page you can point users to fill in their emails and receive an invite (`https://slack.yourdomain.com`)
 - An `<iframe>` badge to embed on any website that shows connected users in *realtime* with socket.io.
 - A SVG badge that works well from static mediums (like GitHub README pages)
-- Abuse prevention via [Google reCAPTCHA](https://www.google.com/recaptcha/intro/)
 
 Check out the [Demo](https://slackin.now.sh/) or read more about the [motivations and history](http://rauchg.com/slackin) behind Slackin.
 
 ## Usage
 
-Set up [Now](https://zeit.co/now) on your device and run this command. [Now](https://zeit.co/now) will automatically ask you for the required information and then spin up a deployment instantly. That easy!
+Set up [Now](https://zeit.co/now) on your device and run this command:
 
 ```bash
-now rauchg/slackin
+$ now -e SLACK_API_TOKEN="<token>" -e SLACK_SUBDOMAIN="<team-name>" now-examples/slackin
 ```
 
 Other platforms:
@@ -36,9 +35,6 @@ times 5. If you are not getting invite emails, this might be the reason.
 Workaround: sign up for a free org, and set up Slackin to point to it
 (all channels will be visible).
 
-Here is where to [generate a secret and
-sitekey](https://www.google.com/recaptcha/admin) for Google reCAPTCHA.
-
 ### Badges
 
 #### Realtime ([demo](https://cldup.com/IaiPnDEAA6.gif))
@@ -59,7 +55,7 @@ sitekey](https://www.google.com/recaptcha/admin) for Google reCAPTCHA.
 Loading `slackin` will return a `Function` that creates a `HTTP.Server` instance:
 
 ```js
-const slackin = require('slackin')
+import slackin from 'slackin'
 
 slackin.default({
   token: 'yourtoken',                             // required
