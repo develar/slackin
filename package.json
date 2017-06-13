@@ -43,7 +43,7 @@
     "supertest": "0.15.0"
   },
   "engines": {
-    "node": "4.5.0"
+    "node": "8.1.0"
   },
   "bin": {
     "slackin": "./bin/slackin"
@@ -58,7 +58,7 @@
   "scripts": {
     "test": "mocha && eslint lib/**",
     "postinstall": "gulp",
-    "build": "gulp",
+    "build": "gulp && cp _redirects dist/_redirects",
     "start": "chmod +x bin/slackin && ./bin/slackin"
   },
   "now": {
